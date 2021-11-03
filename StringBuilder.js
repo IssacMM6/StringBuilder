@@ -1,25 +1,24 @@
 const chUtil = {
-	"spa": 32, "sco": 59, "yen":165,
-	"fac": 33, "lth": 60, "ust":175,
-	"bsl": 34, "eqa": 61, "pms":177,
-	"has": 35, "gth": 62, "psi":182,
-	"dol": 36, "que": 63, "ssi":167,
-	"per": 37, "asi": 64, "div":247,
-	"and": 38, "lsb": 91, "csy":169,
-	"squ": 39, "dbs": 92, 
-	"lpa": 40, "rsb": 93,
-	"rpa": 41, "cac": 94,
-	"sta": 42, "usc": 95,
-	"plu": 43, "gac": 126,
-	"com": 44, "lcb": 123,
-	"min": 45, "vli": 124,
-	"dot": 46, "reb": 125,
-	"col": 58, "epm": 0,
-	"cro": 215,"fsi": 402,
-	"dlh": 171,"dgr": 187,
-	"mdo": 9617,"mdw": 9618,
-	"dfb": 9619,"cen": 162,
-
+	"space": 32, "simiColom": 59, "yen":165,
+	"factorial": 33, "lessThan": 60, "underscoreTop":175,
+	"backslash": 34, "equal": 61, "plusMinus":177,
+	"hash": 35, "greaterThan": 62, "paragraphSign":182,
+	"dollar": 36, "question": 63, "sectionSign":167,
+	"percent": 37, "atSign": 64, "divide":247,
+	"and": 38, "leftSideBracket": 91, "copyright":169,
+	"singleQuote": 39, "doubleBackSlash": 92, 
+	"leftPara": 40, "rightSideBracket": 93,
+	"rightPara": 41, "circumflexAccent": 94,
+	"star": 42, "underScore": 95,
+	"plus": 43, "grveAccent": 126,
+	"coma": 44, "leftBrace": 123,
+	"minus": 45, "varticleLine": 124,
+	"dot": 46, "rightBrace": 125,
+	"colma": 58, "empty": 0,
+	"cross": 215,"funcSign": 402,
+	"doubleLessThen": 171,"doubleGreaterThan": 187,
+	"dotFill": 9617,"dotFillWave": 9618,
+	"dotFillBlack": 9619,"cent": 162,
 }
 
 const funcUtil = {
@@ -32,6 +31,9 @@ const funcUtil = {
 			result+=this.chc(ch);
 		}
 		return result;	
+	},
+	"num":function(n){
+		return String(n);
 	}
 }
 
@@ -56,7 +58,7 @@ const StringBuilder = {
 
 		const args = typeof target === "string"? target.split(" "): target;
 
-		this.then = callback(args,this.util).reduce((p,c)=>{
+		this.then = callback(args, this.util).reduce((p,c)=>{
 			typeof c === "number"? p+= String.fromCodePoint(c):
 			p+=c; 
 			return p;
